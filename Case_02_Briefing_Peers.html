@@ -1,0 +1,442 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Case 02 · Preço na Praça (ANP)</title><style>
+:root{
+  --navy:#001334; --navy2:#021240; --navy3:#2E4E7E; --navy4:#6E86A8;
+  --lime:#E0FE00; --lime2:#F3FE98; --lime3:#F8FECB; --lime-d:#B9CF00;
+  --serene:#D8E7ED; --gelo:#E7F1F4; --cinza:#677084; --cinza-cl:#98A1AE;
+  --hair:#CBD0D5; --branco:#fff; --alerta:#F44119; --atencao:#FAEA09; --ok:#A8F419;
+  --fundo:#F6F8FA;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fundo);
+  color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased;
+  border-left:10px solid var(--lime)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+a{color:var(--navy3)}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--navy);color:#fff;padding:52px 0 0;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-140px;top:-160px;width:520px;height:520px;
+  border-radius:50%;background:radial-gradient(circle,rgba(224,254,0,.10),transparent 62%)}
+.hero .wrap{position:relative;z-index:2}
+.logo{position:absolute;top:0;right:26px;width:132px;height:20px}
+.logo svg{width:100%;height:100%;display:block}
+.kicker{display:inline-block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:var(--lime);border-bottom:2px solid var(--lime);padding-bottom:5px;margin-bottom:18px}
+.hero h1{margin:0 0 14px;font-size:37px;line-height:1.14;font-weight:700;letter-spacing:-.015em;max-width:880px}
+.hero .deck{margin:0;color:rgba(255,255,255,.78);max-width:730px;font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+  padding:6px 13px;border-radius:999px;font-size:12.5px;color:rgba(255,255,255,.85)}
+.chip b{color:var(--lime);font-weight:700}
+.tabs{display:flex;gap:4px;margin-top:34px}
+.tabs button{background:rgba(255,255,255,.06);border:0;border-bottom:3px solid transparent;
+  color:rgba(255,255,255,.62);font:inherit;font-size:14px;font-weight:700;padding:13px 24px;
+  border-radius:8px 8px 0 0;cursor:pointer;transition:.15s;text-align:left}
+.tabs button:hover{background:rgba(255,255,255,.13);color:#fff}
+.tabs button.on{background:var(--fundo);color:var(--navy);border-bottom-color:var(--lime)}
+.tabs button small{display:block;font-weight:400;font-size:11.5px;opacity:.72;margin-top:1px}
+.hero.solo{padding-bottom:46px}
+
+/* ---------- NAV STICKY ---------- */
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
+.subnav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.subnav .wrap::-webkit-scrollbar{display:none}
+.subnav a{padding:14px 14px 11px;font-size:13px;font-weight:700;color:var(--cinza);
+  text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;transition:.15s}
+.subnav a:hover{color:var(--navy);border-bottom-color:var(--serene)}
+
+/* ---------- SEÇÕES ---------- */
+main{padding-bottom:90px}
+section{margin-top:56px;scroll-margin-top:70px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--cinza);font-weight:700;margin:0 0 9px}
+.eyebrow:before{content:"";width:26px;height:4px;background:var(--lime);border-radius:2px;flex:none}
+h2.t{font-size:26px;line-height:1.2;margin:0 0 10px;letter-spacing:-.01em;max-width:840px}
+h3{font-size:17px;margin:0 0 6px}
+h4{font-size:14.5px;margin:0 0 4px}
+.lead{color:var(--cinza);margin:0 0 20px;font-size:15.5px;max-width:800px}
+p{margin:0 0 12px}
+
+.card{background:#fff;border:1px solid var(--hair);border-radius:14px;padding:24px 26px;
+  box-shadow:0 1px 2px rgba(0,19,52,.05)}
+.card p:last-child{margin-bottom:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+/* ---------- OBJETIVO ---------- */
+.obj{background:var(--navy);color:#fff;border-radius:16px;padding:32px 34px;position:relative;overflow:hidden}
+.obj:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--lime)}
+.obj h3{color:#fff;font-size:21px;margin:0 0 6px}
+.obj .sub{color:rgba(255,255,255,.62);font-size:14.5px;margin:0 0 24px;max-width:720px}
+.obj .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.obj .col h4{color:var(--lime);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;margin:0 0 12px}
+.obj ul{margin:0;padding:0;list-style:none}
+.obj li{font-size:14.3px;color:rgba(255,255,255,.88);margin-bottom:11px;padding-left:22px;position:relative;line-height:1.5}
+.obj li:before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;
+  border:2px solid var(--lime);border-radius:2px}
+.obj li.ck:before{content:"";border:0;width:11px;height:6px;border-left:2px solid var(--lime);
+  border-bottom:2px solid var(--lime);transform:rotate(-45deg);top:6px;border-radius:0}
+.obj li b{color:#fff}
+.obj .rodape{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);
+  font-size:13.5px;color:rgba(255,255,255,.6)}
+.obj .rodape b{color:var(--lime)}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.kpis.k3{grid-template-columns:repeat(3,1fr)}
+.kpi{background:#fff;border:1px solid var(--hair);border-radius:12px;padding:18px 20px;
+  border-top:4px solid var(--serene)}
+.kpi.hi{border-top-color:var(--lime)}
+.kpi.al{border-top-color:var(--alerta)}
+.kpi .n{font-size:29px;font-weight:700;letter-spacing:-.025em;line-height:1.1;color:var(--navy)}
+.kpi .n.al{color:var(--alerta)}
+.kpi .l{font-size:12.8px;color:var(--cinza);margin-top:5px;line-height:1.4}
+
+/* ---------- SO WHAT / AVISOS ---------- */
+.sowhat{background:rgba(216,231,237,.4);border-left:6px solid var(--lime);border-radius:0 10px 10px 0;
+  padding:16px 20px;margin-top:18px;font-size:14.5px;color:var(--navy)}
+.sowhat b{font-weight:700}
+.sowhat.al{background:#FEF1ED;border-left-color:var(--alerta)}
+.aviso{background:#FEF1ED;border:1px solid #F9C9BB;border-radius:10px;padding:16px 20px;
+  margin-top:16px;font-size:14.3px}
+.aviso b{color:#B02D0E}
+.pbi{display:flex;gap:12px;align-items:flex-start;background:var(--gelo);border:1px solid var(--serene);
+  border-radius:10px;padding:13px 15px;margin-top:16px;font-size:13.2px;color:var(--navy)}
+.pbi .tag{background:var(--navy);color:var(--lime);border-radius:5px;padding:3px 8px;font-weight:700;
+  font-size:10.5px;letter-spacing:.06em;white-space:nowrap;margin-top:1px}
+
+/* ---------- PERGUNTAS ---------- */
+.qlist{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.qitem{background:#fff;border:1px solid var(--hair);border-radius:12px;padding:18px 20px;
+  display:flex;gap:15px;transition:.15s}
+.qitem:hover{border-color:var(--navy4);box-shadow:0 3px 10px rgba(0,19,52,.07)}
+.qitem .num{font-size:13px;font-weight:700;color:var(--navy);background:var(--lime);
+  width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex:none}
+.qitem h4{margin:0 0 4px;font-size:15px}
+.qitem p{margin:0;font-size:13.2px;color:var(--cinza);line-height:1.5}
+.qitem .fase{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza-cl);
+  font-weight:700;display:block;margin-bottom:5px}
+
+/* ---------- FALAS ---------- */
+.fala{background:#fff;border:1px solid var(--hair);border-left:5px solid var(--navy);
+  border-radius:0 12px 12px 0;padding:17px 21px;margin-bottom:11px}
+.fala p{margin:0;font-size:15.5px;color:var(--navy);line-height:1.55}
+.fala .quem{font-size:12.5px;color:var(--cinza);margin-top:8px;display:block}
+.fala.chave{border-left-color:var(--lime);background:#fff}
+
+/* ---------- DOWNLOAD ---------- */
+.dlbar{background:var(--navy);border-radius:14px;padding:22px 26px;display:flex;
+  align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:18px}
+.dlbar .txt{color:#fff}
+.dlbar .txt b{display:block;font-size:17px;margin-bottom:3px}
+.dlbar .txt span{font-size:13.3px;color:rgba(255,255,255,.6)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--lime);color:var(--navy);
+  font-weight:700;font-size:14px;padding:12px 20px;border-radius:8px;text-decoration:none;
+  border:2px solid var(--lime);transition:.15s;white-space:nowrap}
+.btn:hover{background:var(--lime2);border-color:var(--lime2)}
+.btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.btn.ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn svg{width:15px;height:15px;flex:none}
+
+.filelist{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.file{border:1px solid var(--hair);border-radius:10px;padding:13px 15px;background:#fff;
+  display:flex;gap:12px;align-items:center;transition:.15s}
+.file:hover{border-color:var(--navy4)}
+.file .bd{font-size:9px;font-weight:700;letter-spacing:.07em;padding:4px 7px;border-radius:4px;flex:none}
+.file .bd.f{background:var(--navy);color:var(--lime)}
+.file .bd.d{background:var(--serene);color:var(--navy)}
+.file .bd.op{background:var(--gelo);color:var(--cinza)}
+.file .info{flex:1;min-width:0}
+.file code{font-size:12.8px;font-weight:700;font-family:Arial,Helvetica,sans-serif;display:block;color:var(--navy)}
+.file span.d{font-size:12px;color:var(--cinza);display:block;line-height:1.45;margin-top:2px}
+.file .get{flex:none;width:32px;height:32px;border:1px solid var(--hair);border-radius:7px;
+  display:flex;align-items:center;justify-content:center;color:var(--cinza);text-decoration:none;transition:.15s}
+.file .get:hover{background:var(--lime);border-color:var(--lime);color:var(--navy)}
+.file .get svg{width:14px;height:14px}
+.file .pk{font-size:11px;color:var(--cinza-cl);flex:none}
+
+/* ---------- TABELAS ---------- */
+.tw{overflow-x:auto;border:1px solid var(--hair);border-radius:10px;background:#fff;margin-top:10px}
+table.prev{border-collapse:collapse;font-size:11.8px;width:100%;white-space:nowrap}
+table.prev th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+table.prev td{padding:8px 12px;border-bottom:1px solid var(--gelo);color:var(--navy)}
+table.prev tbody tr:nth-child(even){background:#F7FAFB}
+.rel{font-size:13px;color:var(--navy);background:#fff;border:1px solid var(--hair);
+  border-radius:10px;padding:15px 18px;margin-top:14px;line-height:2}
+.rel b{color:var(--navy);font-weight:700;background:var(--lime2);padding:2px 5px;border-radius:3px}
+.rel .seta{color:var(--cinza-cl);margin:0 4px}
+
+/* ---------- PASSOS ---------- */
+.passos{counter-reset:p;display:grid;gap:12px;margin-top:14px}
+.passo{background:#fff;border:1px solid var(--hair);border-radius:12px;padding:17px 20px 17px 62px;
+  position:relative;counter-increment:p}
+.passo:before{content:counter(p);position:absolute;left:20px;top:16px;width:28px;height:28px;
+  background:var(--navy);color:var(--lime);border-radius:8px;display:flex;align-items:center;
+  justify-content:center;font-size:13px;font-weight:700}
+.passo h4{margin:0 0 3px;font-size:15px}
+.passo p{margin:0;font-size:13.4px;color:var(--cinza)}
+
+/* ---------- GRÁFICOS ---------- */
+.chart-box{position:relative;height:300px;margin-top:8px}
+
+/* ---------- STORY ---------- */
+.story{background:var(--navy);color:#fff;border-radius:16px;padding:34px 36px;margin-top:44px;
+  position:relative;overflow:hidden}
+.story:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--lime)}
+.story h3{color:#fff;font-size:21px;margin:0 0 18px}
+.story ol{margin:0;padding-left:22px;counter-reset:s;list-style:none}
+.story li{margin-bottom:12px;color:rgba(255,255,255,.82);font-size:15px;position:relative;
+  counter-increment:s;padding-left:8px}
+.story li:before{content:counter(s);position:absolute;left:-24px;top:1px;color:var(--lime);
+  font-weight:700;font-size:13px}
+.story li b{color:#fff}
+.story .fecha{color:rgba(255,255,255,.72);font-size:14.8px;margin:22px 0 0;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.15)}
+.story .fecha b{color:var(--lime)}
+
+.bp{background:#fff;border:1px solid var(--hair);border-left:6px solid var(--serene);
+  border-radius:0 14px 14px 0;padding:22px 26px;margin-top:26px}
+.bp h3{font-size:16px;margin:0 0 12px}
+.bp ul{margin:0;padding-left:18px;color:var(--cinza);font-size:13.8px}
+.bp li{margin-bottom:8px}
+.bp li b{color:var(--navy)}
+
+footer{border-top:1px solid var(--hair);margin-top:60px;padding:26px 0 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-size:12px;color:var(--cinza-cl);line-height:1.6}
+.hide{display:none!important}
+@media(max-width:880px){
+  .grid2,.grid3,.kpis,.kpis.k3,.qlist,.filelist,.obj .cols{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+  .logo{display:none}
+}
+</style></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="pldk" viewBox="0 0 396.44 58.36"><path fill="#011334" d="M183.36 46.94 183.36 57.29C183.36 57.67 183.67 57.98 184.05 57.98L228.49 57.98C228.87 57.98 229.18 57.67 229.18 57.28L229.18 46.93C229.18 46.55 228.87 46.24 228.48 46.24L184.04 46.24C183.66 46.24 183.35 46.55 183.35 46.93"/><path fill="#011334" d="M228.29 0.06 183.85 0.06C183.47 0.06 183.16 0.37 183.16 0.75L183.16 11.1C183.16 11.48 183.47 11.79 183.85 11.79L228.29 11.79C228.67 11.79 228.98 11.48 228.98 11.09L228.98 0.75C228.98 0.37 228.67 0.06 228.28 0.06"/><path fill="#011334" d="M379.16 23.13 338.43 23.13C335.3 23.13 332.76 20.58 332.76 17.43 332.76 14.28 335.3 11.73 338.43 11.73L391.69 11.73C392.07 11.73 392.38 11.42 392.38 11.04L392.38 0.69C392.38 0.31 392.07 0 391.69 0L338.43 0C328.86 0 321.1 7.8 321.1 17.42 321.1 27.04 328.86 34.84 338.43 34.84L379.12 34.84C382.25 34.84 384.79 37.4 384.79 40.55 384.79 43.7 382.25 46.25 379.12 46.25L325.95 46.25C325.57 46.25 325.26 46.56 325.26 46.94L325.26 57.29C325.26 57.67 325.57 57.98 325.95 57.98L379.2 57.89C388.73 57.87 396.45 50.1 396.45 40.51 396.45 30.92 388.71 23.13 379.17 23.13"/><path fill="#011334" d="M252.08 23.15 252.08 11.73 297.9 11.73C301.05 11.73 303.61 14.29 303.61 17.44 303.61 20.59 301.06 23.15 297.9 23.15L252.08 23.15ZM297.9 34.88C307.42 34.88 315.16 27.25 315.34 17.77 315.53 7.99 307.29-0.01 297.51-0.01L241.04-0.01C240.66-0.01 240.35 0.3 240.35 0.68L240.35 57.33C240.35 57.71 240.66 58.02 241.04 58.02L251.39 58.02C251.77 58.02 252.08 57.71 252.08 57.33L252.08 34.87 279.54 34.87 299.3 58.1C299.43 58.26 299.62 58.34 299.83 58.34L313 58.34C313.59 58.34 313.91 57.65 313.53 57.2L294.53 34.86 297.91 34.86Z"/><path fill="#011334" d="M11.74 23.15 11.74 11.73 57.56 11.73C60.71 11.73 63.27 14.29 63.27 17.44 63.27 20.59 60.72 23.15 57.56 23.15L11.74 23.15ZM57.56 34.88C67.08 34.88 74.82 27.25 75 17.77 75.18 7.99 66.95-0.01 57.17-0.01L0.69-0.01C0.31-0.01 0 0.3 0 0.68L0 57.33C0 57.71 0.31 58.02 0.69 58.02L11.04 58.02C11.42 58.02 11.73 57.71 11.73 57.33L11.73 34.87 57.56 34.87Z"/><path fill="#011334" d="M183.16 23.84 183.16 34.19C183.16 34.57 183.47 34.88 183.85 34.88L228.29 34.88C228.67 34.88 228.98 34.57 228.98 34.18L228.98 23.83C228.98 23.45 228.67 23.14 228.28 23.14L183.84 23.14C183.46 23.14 183.15 23.45 183.15 23.83"/><path fill="#011334" d="M171.8 34.19 171.8 23.84C171.8 23.46 171.48 23.15 171.1 23.15L92.41 23.15 92.41 11.79 171.11 11.79C171.49 11.79 171.8 11.48 171.8 11.1L171.8 0.75C171.8 0.37 171.48 0.06 171.1 0.06L81.37 0.06C80.99 0.06 80.68 0.37 80.68 0.76L80.68 57.29C80.68 57.67 80.99 57.98 81.37 57.98L171.11 57.98C171.49 57.98 171.8 57.67 171.8 57.28L171.8 46.93C171.8 46.55 171.48 46.24 171.1 46.24L92.41 46.24 92.41 34.88 171.11 34.88C171.49 34.88 171.8 34.57 171.8 34.19"/></symbol>
+<symbol id="pllt" viewBox="0 0 396.44 58.36"><path fill="#E1FF00" d="M183.36 46.94 183.36 57.29C183.36 57.67 183.67 57.98 184.05 57.98L228.49 57.98C228.87 57.98 229.18 57.67 229.18 57.28L229.18 46.93C229.18 46.55 228.87 46.24 228.48 46.24L184.04 46.24C183.66 46.24 183.35 46.55 183.35 46.93"/><path fill="#E1FF00" d="M228.29 0.06 183.85 0.06C183.47 0.06 183.16 0.37 183.16 0.75L183.16 11.1C183.16 11.48 183.47 11.79 183.85 11.79L228.29 11.79C228.67 11.79 228.98 11.48 228.98 11.09L228.98 0.75C228.98 0.37 228.67 0.06 228.28 0.06"/><path fill="#E1FF00" d="M379.16 23.13 338.43 23.13C335.3 23.13 332.76 20.58 332.76 17.43 332.76 14.28 335.3 11.73 338.43 11.73L391.69 11.73C392.07 11.73 392.38 11.42 392.38 11.04L392.38 0.69C392.38 0.31 392.07 0 391.69 0L338.43 0C328.86 0 321.1 7.8 321.1 17.42 321.1 27.04 328.86 34.84 338.43 34.84L379.12 34.84C382.25 34.84 384.79 37.4 384.79 40.55 384.79 43.7 382.25 46.25 379.12 46.25L325.95 46.25C325.57 46.25 325.26 46.56 325.26 46.94L325.26 57.29C325.26 57.67 325.57 57.98 325.95 57.98L379.2 57.89C388.73 57.87 396.45 50.1 396.45 40.51 396.45 30.92 388.71 23.13 379.17 23.13"/><path fill="#E1FF00" d="M252.08 23.15 252.08 11.73 297.9 11.73C301.05 11.73 303.61 14.29 303.61 17.44 303.61 20.59 301.06 23.15 297.9 23.15L252.08 23.15ZM297.9 34.88C307.42 34.88 315.16 27.25 315.34 17.77 315.53 7.99 307.29-0.01 297.51-0.01L241.04-0.01C240.66-0.01 240.35 0.3 240.35 0.68L240.35 57.33C240.35 57.71 240.66 58.02 241.04 58.02L251.39 58.02C251.77 58.02 252.08 57.71 252.08 57.33L252.08 34.87 279.54 34.87 299.3 58.1C299.43 58.26 299.62 58.34 299.83 58.34L313 58.34C313.59 58.34 313.91 57.65 313.53 57.2L294.53 34.86 297.91 34.86Z"/><path fill="#E1FF00" d="M11.74 23.15 11.74 11.73 57.56 11.73C60.71 11.73 63.27 14.29 63.27 17.44 63.27 20.59 60.72 23.15 57.56 23.15L11.74 23.15ZM57.56 34.88C67.08 34.88 74.82 27.25 75 17.77 75.18 7.99 66.95-0.01 57.17-0.01L0.69-0.01C0.31-0.01 0 0.3 0 0.68L0 57.33C0 57.71 0.31 58.02 0.69 58.02L11.04 58.02C11.42 58.02 11.73 57.71 11.73 57.33L11.73 34.87 57.56 34.87Z"/><path fill="#E1FF00" d="M183.16 23.84 183.16 34.19C183.16 34.57 183.47 34.88 183.85 34.88L228.29 34.88C228.67 34.88 228.98 34.57 228.98 34.18L228.98 23.83C228.98 23.45 228.67 23.14 228.28 23.14L183.84 23.14C183.46 23.14 183.15 23.45 183.15 23.83"/><path fill="#E1FF00" d="M171.8 34.19 171.8 23.84C171.8 23.46 171.48 23.15 171.1 23.15L92.41 23.15 92.41 11.79 171.11 11.79C171.49 11.79 171.8 11.48 171.8 11.1L171.8 0.75C171.8 0.37 171.48 0.06 171.1 0.06L81.37 0.06C80.99 0.06 80.68 0.37 80.68 0.76L80.68 57.29C80.68 57.67 80.99 57.98 81.37 57.98L171.11 57.98C171.49 57.98 171.8 57.67 171.8 57.28L171.8 46.93C171.8 46.55 171.48 46.24 171.1 46.24L92.41 46.24 92.41 34.88 171.11 34.88C171.49 34.88 171.8 34.57 171.8 34.19"/></symbol></svg><!--
+  ============================================================================
+  BOTAO DE DOWNLOAD DOS DADOS
+  Ha um unico link, no bloco <div class="dlbar"> da secao "Os dados".
+  Para trocar o destino, edite o href desse link.
+
+  GitHub (download direto, formato correto):
+    https://raw.githubusercontent.com/<usuario>/<repo>/<branch>/dados.zip
+  NAO use o endereco que aparece na barra do navegador (.../blob/main/dados.zip):
+  ele abre a pagina do arquivo no GitHub em vez de baixar.
+
+  Arquivo local, com o dados.zip na mesma pasta do HTML:
+    dados.zip
+  ============================================================================
+--><header class="hero solo"><div class="wrap"><div class="logo"><svg><use href="#pllt"/></svg></div><div class="kicker">Case 02 &middot; Preço e expansão no varejo de combustíveis</div><h1>Estamos caros ou baratos? E onde abrir o próximo posto?</h1><p class="deck">Duas perguntas do cliente, uma única base de dados pública e nenhuma coluna de faturamento. Este case treina você a tirar decisão de negócio de um dado que não foi feito para isso.</p><div class="chips"><span class="chip"><b>217.026</b> coletas de preço</span><span class="chip"><b>1.301</b> postos de Minas</span><span class="chip"><b>4</b> tabelas em CSV</span><span class="chip">Duração estimada: <b>3h a 4h</b></span><span class="chip">Nível: <b>intermediário</b></span><span class="chip">Dado público <b>real</b></span></div></div></header><nav class="subnav"><div class="wrap"><a href="#objetivo">Objetivo</a><a href="#contexto">O contexto</a><a href="#cliente">A conversa com o cliente</a><a href="#perguntas">As perguntas</a><a href="#dados">Os dados</a><a href="#tratamento">O tratamento</a><a href="#entrega">Como entregar</a></div></nav><main><div class="wrap"><div>
+<section id="objetivo">
+<div class="eyebrow">Comece por aqui</div>
+<h2 class="t">O que este case pede de você</h2>
+<p class="lead">Leia esta seção antes de abrir o Power BI. Este case é o par do Case 01: lá os dados
+chegavam limpos, aqui eles chegam do jeito que o governo publica. A dificuldade mudou de lugar.</p>
+<div class="obj">
+  <h3>Decidir o preço de hoje e a praça de amanhã, usando só preço público</h3>
+  <p class="sub">A Rede Serra Azul tem três postos e R$ 4,5 milhões no caixa para abrir o quarto. Não
+  existe base pública de volume, faturamento ou lucro no setor: o preço de bomba é a única janela que
+  todo mundo tem. Aprender a ler essa janela é o exercício.</p>
+  <div class="cols">
+    <div class="col"><h4>Você vai entregar</h4><ul>
+      <li>Um <b>painel de posicionamento de preço</b> que mostre onde os três postos estão em relação à concorrência da mesma cidade.</li>
+      <li>Uma <b>indicação de município</b> para a quarta unidade, com o critério explícito de escolha.</li>
+      <li>Uma <b>recomendação de posicionamento</b> na praça nova: entrar brigando por preço ou acompanhar o mercado local.</li>
+    </ul></div>
+    <div class="col"><h4>Você vai praticar</h4><ul>
+      <li><b>Tratamento no Power Query</b>: separador, decimal com vírgula, data em dd/mm/aaaa e texto em caixa alta.</li>
+      <li>Usar <b>Localidade</b> na conversão de tipo, que é o ponto onde a maior parte das importações de dado brasileiro quebra.</li>
+      <li>Escrever medidas com <b>CALCULATE, ALLEXCEPT e filtros de contexto</b> para comparar um item contra o grupo dele.</li>
+      <li>Reconhecer que uma base é <b>amostral</b> e ajustar a leitura por causa disso.</li>
+      <li>Usar <b>proxy</b> quando o dado ideal não existe, e declarar o limite dessa escolha.</li>
+    </ul></div>
+    <div class="col"><h4>Você terminou quando</h4><ul>
+      <li class="ck">Seus preços importaram <b>certos</b>, na casa dos R$ 5 a R$ 7, e não dos 600.</li>
+      <li class="ck">Consegue dizer, com número, se a rede está <b>acima ou abaixo</b> do mercado de cada cidade.</li>
+      <li class="ck">Escolheu um município e sabe <b>justificar por que não os outros</b>.</li>
+      <li class="ck">Consegue explicar ao cliente <b>o que essa base não responde</b>.</li>
+    </ul></div>
+  </div>
+  <p class="rodape">Sugestão de ritmo: <b>50 min</b> para importar e tratar &nbsp;·&nbsp; <b>50 min</b>
+  para modelar e criar as medidas &nbsp;·&nbsp; <b>80 min</b> para explorar e montar o painel
+  &nbsp;·&nbsp; <b>30 min</b> para fechar a recomendação.</p>
+</div>
+</section>
+
+<section id="contexto">
+<div class="eyebrow">O contexto</div>
+<h2 class="t">Uma rede de três postos que nunca soube se estava cara ou barata</h2>
+<p class="lead">Combustível é um dos varejos de margem mais apertada que existe. Quem ganha dinheiro é
+quem acerta o preço e a esquina.</p>
+<div class="card">
+<p>A <b>Rede Serra Azul</b> opera <b>três postos de combustível</b> na Grande Belo Horizonte. É um
+negócio de família, de segunda geração, onde a margem por litro se conta em centavos.</p>
+<p>Depois de dois anos guardando caixa, a família juntou <b>R$ 4,5 milhões</b> para abrir a quarta
+unidade. Só que, antes de decidir onde abrir, o dono percebeu que não sabia responder uma pergunta bem
+mais básica: <b>o preço que ele pratica hoje está certo?</b> Nunca comparou o preço dos próprios postos
+com o dos concorrentes de forma sistemática. Ele olha a placa do posto da esquina e decide no feeling.</p>
+<p><b>Os três postos da rede estão dentro da base que você recebeu.</b> São estes:</p>
+<div class="kpis k3" style="margin-bottom:8px">
+  <div class="kpi"><div class="n" style="font-size:19px">PST02776</div>
+  <div class="l">Minaslândia, Belo Horizonte &middot; bandeira Vibra</div></div>
+  <div class="kpi"><div class="n" style="font-size:19px">PST02833</div>
+  <div class="l">Carlos Prates, Belo Horizonte &middot; bandeira Raízen</div></div>
+  <div class="kpi"><div class="n" style="font-size:19px">PST02944</div>
+  <div class="l">Chácara, Betim &middot; bandeira Vibra</div></div>
+</div>
+<p style="font-size:13px;color:var(--cinza);margin-bottom:0">A razão social que aparece no cadastro da ANP
+ainda é a do antigo proprietário, porque a rede comprou as três unidades e o registro nunca foi
+atualizado. Identifique os postos pelo <code>id_posto</code>, não pelo nome.</p>
+</div>
+<div class="sowhat"><b>Por que este case existe:</b> a ANP publica semanalmente o preço de bomba de cada
+posto pesquisado no país. Não existe base pública de volume, faturamento ou lucro. Quando o dado ideal
+não está disponível, o trabalho do analista é escolher um bom substituto e ser honesto sobre o que ele
+não mede.</div>
+</section>
+
+<section id="cliente">
+<div class="eyebrow">A conversa com o cliente</div>
+<h2 class="t">O que o dono falou na reunião de abertura</h2>
+<p class="lead">Três falas, duas perguntas de negócio e uma tensão de família no meio. É assim que
+projeto de consultoria começa na vida real.</p>
+<div class="fala"><p>&ldquo;Eu não sei se estou caro ou barato. Eu olho a placa do posto da esquina e
+acompanho. Se eu estiver barato demais estou dando dinheiro de graça; se estiver caro demais o cliente
+atravessa a rua.&rdquo;</p><span class="quem">O dono, sobre o preço de hoje</span></div>
+<div class="fala"><p>&ldquo;E quero abrir o quarto posto. Meu filho quer ficar na capital porque tem
+movimento; minha filha quer o interior porque o terreno é mais barato e tem menos concorrente. Ninguém
+me traz um número.&rdquo;</p><span class="quem">O dono, sobre a expansão</span></div>
+<div class="fala chave"><p>&ldquo;E se eu abrir numa cidade nova, eu entro com preço baixo para roubar
+cliente ou eu acompanho o mercado de lá? Porque se todo mundo cobra igual naquela cidade não adianta eu
+tentar ser o mais barato.&rdquo;</p>
+<span class="quem">O dono, na pergunta mais difícil e mais interessante da reunião</span></div>
+<div class="card" style="margin-top:18px">
+<p style="margin-bottom:0"><b>O que ele contratou:</b> um painel que responda se o preço atual está certo,
+quanto ele pode mexer sem perder cliente, e em qual município abrir a quarta unidade, com que
+posicionamento de preço. Repare que a terceira fala já é uma pergunta de estratégia, e a resposta dela
+está na dispersão de preços de cada praça.</p>
+</div>
+</section>
+
+<section id="perguntas">
+<div class="eyebrow">Ponto de partida</div>
+<h2 class="t">As seis perguntas que o painel precisa responder</h2>
+<p class="lead">As três primeiras são sobre o preço de hoje. As três últimas são sobre onde e como
+crescer. Você não precisa seguir nessa ordem, e é ótimo se acrescentar perguntas suas.</p>
+<div class="qlist">
+<div class="qitem"><div class="num">1</div><div><span class="fase">Onde estamos</span>
+<h4>Estamos caros ou baratos?</h4>
+<p>Como o preço dos nossos três postos se compara ao dos concorrentes do mesmo município?</p></div></div>
+<div class="qitem"><div class="num">2</div><div><span class="fase">Onde estamos</span>
+<h4>Quanto de espaço existe para mexer?</h4>
+<p>Qual a diferença entre o posto mais barato e o mais caro da nossa praça? Isso define o teto do movimento.</p></div></div>
+<div class="qitem"><div class="num">3</div><div><span class="fase">Onde estamos</span>
+<h4>Acompanhamos o mercado ou ficamos para trás?</h4>
+<p>Quando o preço da praça sobe, nós subimos junto, antes ou depois? A resposta muda o diagnóstico.</p></div></div>
+<div class="qitem"><div class="num">4</div><div><span class="fase">Para onde ir</span>
+<h4>Em que município abrir o quarto posto?</h4>
+<p>Onde o preço médio é alto e a concorrência é pouca? Preço alto sustentado indica margem disponível.</p></div></div>
+<div class="qitem"><div class="num">5</div><div><span class="fase">Para onde ir</span>
+<h4>Com que preço entrar na praça nova?</h4>
+<p>Vale brigar por preço ou acompanhar o mercado local? Depende de quanto os preços variam por lá.</p></div></div>
+<div class="qitem"><div class="num">6</div><div><span class="fase">Para onde ir</span>
+<h4>Vale investir em bomba de etanol?</h4>
+<p>O etanol só compensa para o motorista abaixo de 70% do preço da gasolina. Está abaixo por lá?</p></div></div>
+</div>
+</section>
+
+<section id="dados">
+<div class="eyebrow">Os dados</div>
+<h2 class="t">Quatro tabelas de dado público real da ANP</h2>
+<p class="lead">A ANP publica uma planilha única com o endereço do posto repetido em cada coleta. Nós já
+separamos isso em duas tabelas, o cadastro de um lado e o preço do outro, para o modelo ficar limpo.
+O resto está exatamente como o governo publica, com todos os defeitos incluídos.</p>
+
+<div class="dlbar">
+  <div class="txt"><b>Baixe a base do Case 02</b>
+  <span>Um único pacote com os 4 arquivos CSV &middot; 1,4 MB</span></div>
+  <a class="btn" href="https://raw.githubusercontent.com/Lucas-Piero/CONECTA-BI-PEERS-V2/main/dados.zip" download="dados_case_02.zip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar os dados (.zip)</a>
+</div>
+<div class="filelist"><div class="file"><span class="bd f">FATO</span><div class="info"><code>fColetas.csv</code><span class="d">Tabela fato com 217.026 linhas, uma por coleta de preço: posto, produto, data e valor de venda.</span></div><span class="pk">8,5 MB</span></div><div class="file"><span class="bd d">DIM</span><div class="info"><code>dPostos.csv</code><span class="d">1.301 revendas de Minas Gerais: CNPJ, razão social, bandeira, endereço, bairro, município e o marcador ativo_2026.</span></div><span class="pk">213 KB</span></div><div class="file"><span class="bd d">DIM</span><div class="info"><code>dProduto.csv</code><span class="d">Os 6 combustíveis pesquisados, com grupo e tipo.</span></div><span class="pk">1 KB</span></div><div class="file"><span class="bd d">DIM</span><div class="info"><code>dCalendario.csv</code><span class="d">Calendário diário de 01/01/2024 a 30/06/2026.</span></div><span class="pk">49 KB</span></div><div class="file"><span class="bd op">EXTRA</span><div class="info"><code>base_nacional_completa.zip</code><span class="d">Opcional, para quem quiser esticar o exercício: o Brasil inteiro, com 2.125.571 coletas em 13.030 postos. Vem à parte, fora do pacote acima.</span></div><span class="pk">13 MB</span></div></div>
+
+<h3 style="margin-top:28px">Como é a tabela de coletas</h3>
+<p class="lead" style="margin-bottom:0">Repare no decimal com vírgula e na data em dd/mm/aaaa. É aí que
+a importação costuma quebrar.</p>
+<div class="tw"><table class="prev"><thead><tr><th>id_coleta</th><th>id_posto</th><th>id_produto</th>
+<th>data_coleta</th><th>valor_venda</th></tr></thead><tbody>
+<tr><td>C0000231</td><td>PST02750</td><td>PRD02</td><td>01/01/2024</td><td>5,990</td></tr>
+<tr><td>C0000232</td><td>PST02750</td><td>PRD05</td><td>01/01/2024</td><td>5,690</td></tr>
+<tr><td>C0000233</td><td>PST02750</td><td>PRD04</td><td>01/01/2024</td><td>5,290</td></tr>
+<tr><td>C0000234</td><td>PST02750</td><td>PRD03</td><td>01/01/2024</td><td>3,290</td></tr>
+</tbody></table></div>
+
+<h3 style="margin-top:24px">E o cadastro dos postos</h3>
+<div class="tw"><table class="prev"><thead><tr><th>id_posto</th><th>cnpj</th><th>razao_social</th>
+<th>bandeira</th><th>bairro</th><th>municipio</th><th>uf</th><th>primeira_coleta</th><th>ultima_coleta</th>
+<th>qtd_coletas</th><th>ativo_2026</th></tr></thead><tbody>
+<tr><td>PST02678</td><td>23.370.537/0001-49</td><td>AUTO POSTO ARCANJO MIGUEL III LTDA. - EPP</td><td>RAIZEN</td><td>JARDIM ELITE</td><td>ALFENAS</td><td>MG</td><td>04/01/2024</td><td>30/10/2024</td><td>126</td><td>Nao</td></tr>
+<tr><td>PST02679</td><td>10.465.604/0001-67</td><td>AUTO POSTO ARCANJO MIGUEL LTDA</td><td>RAIZEN</td><td>JARDIM BOA ESPERANÇA</td><td>ALFENAS</td><td>MG</td><td>04/01/2024</td><td>25/06/2026</td><td>444</td><td>Sim</td></tr>
+<tr><td>PST02680</td><td>03.787.578/0001-28</td><td>AUTO POSTO E TRANSPORTE ALFENENSE LTDA</td><td>BRANCA</td><td>JARDIM BOA ESPERANCA II</td><td>ALFENAS</td><td>MG</td><td>04/01/2024</td><td>30/10/2024</td><td>131</td><td>Nao</td></tr>
+</tbody></table></div>
+
+<h3 style="margin-top:24px">Como as tabelas se ligam</h3>
+<div class="rel">
+<b>fColetas[id_posto]</b><span class="seta">&rarr;</span>dPostos[id_posto]<br>
+<b>fColetas[id_produto]</b><span class="seta">&rarr;</span>dProduto[id_produto]<br>
+<b>fColetas[data_coleta]</b><span class="seta">&rarr;</span>dCalendario[data]
+</div>
+</section>
+
+<section id="tratamento">
+<div class="eyebrow">O tratamento</div>
+<h2 class="t">Cinco coisas que vão dar errado se você só clicar em carregar</h2>
+<p class="lead">Ao contrário do Case 01, aqui os dados estão no formato original da ANP. Isso é de
+propósito: é assim que dado público brasileiro chega. Resolver estes cinco pontos é metade do exercício.</p>
+<div class="passos">
+<div class="passo"><h4>Separador é ponto e vírgula, decimal é vírgula</h4>
+<p>O arquivo vem com <code>6,29</code> no lugar de <code>6.29</code>. Na conversão de
+<code>valor_venda</code> para Número Decimal, use <b>Usando Localidade e escolha Português (Brasil)</b>.
+Sem isso o Power BI lê 629 ou devolve erro na coluna inteira.</p></div>
+<div class="passo"><h4>Data em dd/mm/aaaa</h4>
+<p>Mesma solução, mesma localidade. Se o seu Power BI estiver em inglês, ele vai inverter dia e mês nos
+dias 1 a 12 sem avisar nada. É o tipo de erro silencioso que só aparece quando o gráfico mensal fica
+estranho e ninguém entende por quê.</p></div>
+<div class="passo"><h4>Município em caixa alta e sem acento</h4>
+<p>Você vai ver <code>BELO HORIZONTE</code>, <code>MURIAE</code>, <code>TRES CORACOES</code>. Fica feio no
+gráfico e, pior, impede cruzar com qualquer tabela externa (IBGE, população, renda) sem padronizar antes.
+Padronize enquanto ainda está no Power Query.</p></div>
+<div class="passo"><h4>A base é amostral, não é censo</h4>
+<p>A ANP pesquisa uma seleção de revendas por município, e essa seleção muda ao longo do tempo. Dos 1.301
+postos que aparecem, só <b>752</b> têm coleta em 2026. Contar concorrentes sem filtrar por atividade
+recente superestima a disputa em várias praças. Use a coluna <code>ativo_2026</code>.</p></div>
+<div class="passo"><h4>Volume de linhas</h4>
+<p>São 217 mil linhas no recorte de Minas. O Power BI carrega rápido, mas se alguém abrir o CSV no Excel
+antes vai achar que travou. A base nacional tem 2,1 milhões de linhas: essa você abre só no Power BI.</p></div>
+</div>
+<div class="aviso"><b>Se aparecerem preços na casa dos 600, pare e volte para a importação.</b> Não tente
+corrigir com fórmula depois. É a localidade que está errada, e refazer a conversão leva dois minutos.</div>
+</section>
+
+<section id="entrega">
+<div class="eyebrow">Como entregar</div>
+<h2 class="t">Um caminho sugerido, se você não souber por onde começar</h2>
+<p class="lead">Não é obrigatório seguir. Serve para destravar quem está olhando para 217 mil linhas sem
+saber qual pergunta atacar primeiro.</p>
+<div class="passos">
+<div class="passo"><h4>Importe com calma e confira os tipos</h4><p>Antes de sair modelando, olhe a coluna
+de preço e a de data. Se o mínimo e o máximo de <code>valor_venda</code> fizerem sentido para
+combustível, você passou da parte mais escorregadia do case.</p></div>
+<div class="passo"><h4>Monte o modelo e marque a tabela de datas</h4><p>Três relacionamentos, nada
+complicado. Marcar a dCalendario como tabela de datas é o que faz a ordenação mensal sair certa.</p></div>
+<div class="passo"><h4>Crie a medida que compara um posto com a praça dele</h4><p>É a medida central do
+case: preço médio do nosso posto contra o preço médio dos demais postos do mesmo município, no mesmo
+período. CALCULATE com ALLEXCEPT no município resolve.</p></div>
+<div class="passo"><h4>Responda as perguntas 1, 2 e 3 em sequência</h4><p>Elas montam o retrato do
+presente. Só depois disso a discussão de expansão faz sentido.</p></div>
+<div class="passo"><h4>Filtre ativo_2026 antes de contar concorrente</h4><p>Sem esse filtro, cidades que
+saíram da amostra aparecem com concorrência inflada e o ranking de municípios vira ficção.</p></div>
+<div class="passo"><h4>Feche dizendo o que a base não responde</h4><p>Preço não é volume, e amostra não é
+censo. Declarar o limite da análise não enfraquece a recomendação: é o que faz o cliente confiar nela.</p></div>
+</div>
+</section>
+</div></div></main><footer><div class="wrap"><div>Case 02 &middot; Capacitação prática de Power BI &middot; Peers Consulting + Technology<br>A Rede Serra Azul é fictícia e não tem relação com os estabelecimentos reais do cadastro.</div><div style="text-align:right">Fonte: ANP, Levantamento de Preços de Combustíveis,<br>séries semestrais AUTOMOTIVOS 2024.01 a 2026.01. Valores originais, sem alteração.</div></div></footer></body></html>
